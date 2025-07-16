@@ -1,6 +1,9 @@
 package es.cic.curso2025.proy007.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,5 +23,15 @@ public class EntradaController {
         //TODO faltaria validar como el que no se mete una entrada que ya existe
         
         return entradaServices.crear(entrada);
+    }
+
+    @GetMapping("/{id}")
+    public Entrada buscarUna(@PathVariable Long id) {
+        return entradaServices.buscarUna(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String eliminarUna(@PathVariable Long id) {
+        return entradaServices.eliminarUna(id);
     }
 }

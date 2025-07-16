@@ -22,9 +22,15 @@ public class EntradaRepository {
         return entrada.getIdEntrada(); 
     }
 
+    public Entrada buscarUna(Long id) {
+        return entradas.get(id);
+    }
 
-
-
+    public String eliminarUna(Long id) {
+        entradas.remove(id);
+        
+        return String.format("Se ha eliminado correctamente la entrada con id %d", id);
+    }
 
     private Long getSiguienteId() {
         Long mayor = entradas.keySet()

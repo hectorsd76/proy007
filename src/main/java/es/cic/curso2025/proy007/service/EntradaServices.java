@@ -15,4 +15,12 @@ public class EntradaServices {
     public Long crear(Entrada entrada) {
         return entradaRepository.crear(entrada);
     }
+
+    public Entrada buscarUna(Long id){
+        return entradaRepository.buscarUna(id);
+    }
+
+    public String eliminarUna(Long id) {
+        return entradaRepository.eliminarUna(id);
+    }
 }
