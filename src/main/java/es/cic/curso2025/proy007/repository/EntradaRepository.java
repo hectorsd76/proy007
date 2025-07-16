@@ -1,5 +1,7 @@
 package es.cic.curso2025.proy007.repository;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,14 +26,11 @@ public class EntradaRepository {
 
 
 
-    private long getSiguienteId() {
-        long mayor = 
-            entradas
-                .keySet()
-                .stream()
-                .max(
-                    (primero, segundo) -> (int) (segundo.longValue() - primero.longValue())
-                ).get();
-        return mayor + 1;        
+    private Long getSiguienteId() {
+        Long mayor = entradas.keySet()
+                         .stream()
+                         .max((a, b) -> a > b ? 1 : (a.equals(b) ? 0 : -1))
+                         .orElse(0L);
+    return mayor + 1;       
     }
 }
