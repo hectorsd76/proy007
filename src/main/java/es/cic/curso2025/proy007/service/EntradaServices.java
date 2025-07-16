@@ -1,5 +1,7 @@
 package es.cic.curso2025.proy007.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,13 @@ public class EntradaServices {
 
     public String eliminarUna(Long id) {
         return entradaRepository.eliminarUna(id);
+    }
+
+    public List<Entrada> listarTodas() {
+        return entradaRepository.listarTodas();
+    }
+
+    public Entrada actualizarNombrePartido(Long id, String nuevoNombrePartido) {
+        return entradaRepository.actualizarNombrePartido(id, nuevoNombrePartido);
     }
 }

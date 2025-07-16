@@ -1,10 +1,13 @@
 package es.cic.curso2025.proy007.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,5 +36,14 @@ public class EntradaController {
     @DeleteMapping("/{id}")
     public String eliminarUna(@PathVariable Long id) {
         return entradaServices.eliminarUna(id);
+    }
+
+    @GetMapping("/entrada") 
+    public List<Entrada> listarTodas() {
+        return entradaServices.listarTodas();
+    }
+    @PutMapping("/{id}")
+    public Entrada actualizarNombrePartido(Long id, String nuevoNombrePartido) {
+        return entradaServices.actualizarNombrePartido(id, nuevoNombrePartido);
     }
 }
