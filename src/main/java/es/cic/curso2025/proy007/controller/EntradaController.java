@@ -43,10 +43,13 @@ public class EntradaController {
     public List<Entrada> listarTodas() {
         return entradaServices.get();
     }
-    /* 
-    @PutMapping("/{id}")
-    public Entrada actualizarNombrePartido(Long id, String nuevoNombrePartido) {
-        return entradaServices.update(id, nuevoNombrePartido);
+    
+    @PutMapping("/{id}") 
+    public Entrada actualizarEntrada(  @PathVariable Long id, @RequestBody Entrada entrada) { 
+        
+        entrada.setIdEntrada(id); 
+        
+        return entradaServices.update(entrada);
     }
-        */
+        
 }

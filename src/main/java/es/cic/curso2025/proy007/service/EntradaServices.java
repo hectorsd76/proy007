@@ -35,7 +35,7 @@ public class EntradaServices {
         return entradaRepository.findAll();
     }
 
-    public void  update(Entrada entrada){
-        entradaRepository.save(entrada);
+    public Entrada  update(Entrada entrada){
+        return entradaRepository.save(entrada);
     }
 }
