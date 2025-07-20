@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.cic.curso2025.proy007.EntradaIdNotNullException;
 import es.cic.curso2025.proy007.model.Entrada;
 import es.cic.curso2025.proy007.service.EntradaServices;
 
@@ -24,7 +25,9 @@ public class EntradaController {
 
     @PostMapping
     public Entrada crear(@RequestBody Entrada entrada) {
-        //TODO faltaria validar como el que no se mete una entrada que ya existe
+        if (entrada.getIdEntrada() != null) {
+            throw new EntradaIdNotNullException("El id debe ser nulo");
+        }
         
         return entradaServices.create(entrada);
     }
