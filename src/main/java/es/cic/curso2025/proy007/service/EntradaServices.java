@@ -15,10 +15,10 @@ public class EntradaServices {
     @Autowired
     private EntradaRepository entradaRepository;
 
-    public Long create(Entrada entrada) {
+    public Entrada create(Entrada entrada) {
          
-        entradaRepository.save(entrada);
-         return entrada.getIdEntrada();
+       return entradaRepository.save(entrada);
+        
     }
 
     public Entrada get(Long id){

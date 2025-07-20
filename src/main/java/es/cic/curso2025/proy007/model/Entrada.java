@@ -1,8 +1,8 @@
 package es.cic.curso2025.proy007.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-import jakarta.annotation.Generated;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +19,7 @@ public class Entrada {
     
     private int numAsiento;
     private String partido;
-    private Date fechaPartido;
+    private LocalDate fechaPartido;
 
     public Long getIdEntrada() {
         return idEntrada;
@@ -39,10 +39,10 @@ public class Entrada {
     public void setPartido(String partido) {
         this.partido = partido;
     }
-    public Date getFechaPartido() {
+    public LocalDate getFechaPartido() {
         return fechaPartido;
     }
-    public void setFechaPartido(Date fechaPartido) {
+    public void setFechaPartido(LocalDate fechaPartido) {
         this.fechaPartido = fechaPartido;
     }
 
