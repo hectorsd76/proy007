@@ -2,23 +2,25 @@ package es.cic.curso2025.proy007.model;
 
 import java.util.Date;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Entradas")
 public class Entrada {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEntrada;
+    
     private int numAsiento;
     private String partido;
     private Date fechaPartido;
 
-    public Entrada() {
-        
-    }
-
-    public Entrada(Long idEntrada, int numAsiento, String partido, Date fechaPartido) {
-        this.idEntrada = idEntrada;
-        this.numAsiento = numAsiento;
-        this.partido = partido;
-        this.fechaPartido = fechaPartido;
-    }
     public Long getIdEntrada() {
         return idEntrada;
     }

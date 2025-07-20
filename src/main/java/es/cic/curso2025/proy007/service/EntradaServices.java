@@ -1,6 +1,7 @@
 package es.cic.curso2025.proy007.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,23 +15,27 @@ public class EntradaServices {
     @Autowired
     private EntradaRepository entradaRepository;
 
-    public Long crear(Entrada entrada) {
-        return entradaRepository.crear(entrada);
+    public Long create(Entrada entrada) {
+         
+        entradaRepository.save(entrada);
+         return entrada.getIdEntrada();
     }
 
-    public Entrada buscarUna(Long id){
-        return entradaRepository.buscarUna(id);
+    public Entrada get(Long id){
+
+        Optional<Entrada> resultado = entradaRepository.findById(id);
+        return resultado.orElse(null);
     }
 
-    public String eliminarUna(Long id) {
-        return entradaRepository.eliminarUna(id);
+    public void delete(Long id) {
+         entradaRepository.deleteById(id);
     }
 
-    public List<Entrada> listarTodas() {
-        return entradaRepository.listarTodas();
+    public List<Entrada> get() {
+        return entradaRepository.findAll();
     }
 
-    public Entrada actualizarNombrePartido(Long id, String nuevoNombrePartido) {
-        return entradaRepository.actualizarNombrePartido(id, nuevoNombrePartido);
+    public void  update(Entrada entrada){
+        entradaRepository.save(entrada);
     }
 }

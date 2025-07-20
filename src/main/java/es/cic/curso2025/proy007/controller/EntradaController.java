@@ -22,28 +22,8 @@ public class EntradaController {
     private EntradaServices entradaServices;
 
     @PostMapping
-    public Long crear(Entrada entrada) {
-        //TODO faltaria validar como el que no se mete una entrada que ya existe
-        
-        return entradaServices.crear(entrada);
-    }
-
-    @GetMapping("/{id}")
-    public Entrada buscarUna(@PathVariable Long id) {
-        return entradaServices.buscarUna(id);
-    }
-
-    @DeleteMapping("/{id}")
-    public String eliminarUna(@PathVariable Long id) {
-        return entradaServices.eliminarUna(id);
-    }
-
-    @GetMapping("/entrada") 
-    public List<Entrada> listarTodas() {
-        return entradaServices.listarTodas();
-    }
-    @PutMapping("/{id}")
-    public Entrada actualizarNombrePartido(Long id, String nuevoNombrePartido) {
-        return entradaServices.actualizarNombrePartido(id, nuevoNombrePartido);
+    public long create(Entrada entrada){
+        // TODO
+        return entradaServices.create(entrada);
     }
 }
